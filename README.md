@@ -6,7 +6,7 @@ Built with Astro, deployed on Vercel.
 
 - **Interactive World Map** - Pan, zoom, and click location pins for details
 - **100+ Lore Entries** - Full-page entries for every faction, god, nation, person, location, and event
-- **Global Search** - Instant client-side search across all entries (Fuse.js)
+- **Global Search** - Instant client-side search across all entries
 - **Relationship Web** - D3.js force graph showing connections between all entries
 - **Auto Cross-Linking** - Obsidian wiki-links (`[[Entry Name]]`) automatically converted to site links
 - **Dark Fantasy Design** - Cinzel typography, warm gold accents, parchment texture
