@@ -1,0 +1,1 @@
+Ferran Alwin was a legendary [[Ettish People]] adventurer who ascended to Godhood alongside [[Kenway Moonsail (God)]]

@@ -1,0 +1,3 @@
+The **Marquisate of Reifenwald** (Trcht: Reifenwaldisks Mark) was a semi-independent Marquisate within the [[Second Shining Empire]] established after the [[Imperial Invasion of Orngard]]. Formally established for the purpose of cleansing heathen worshippers of [[Vinhema]] and restoring continental obedience to [[The Myriad]], the early years of the Marquisate saw the cultural and religious assimilation of large portions of the local population, consisting near-entirely of [[Velm People]].
+
+Reifenwald would rule over the territories conquered by Imperial intervention for fifty-one years, before the unification of the [[Realm of Velmir]] saw an attempt to reclaim the region during the [[Invasion of Reifenwald]].

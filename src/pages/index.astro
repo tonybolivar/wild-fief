@@ -1,0 +1,253 @@
+---
+import Base from '../layouts/Base.astro';
+
+const sections = [
+  {
+    href: '/map',
+    label: 'World Map',
+    icon: '◈',
+    desc: 'Explore the continent of Wudor — pan, zoom, and discover every corner of the known world.',
+    featured: true,
+  },
+  {
+    href: '/nations',
+    label: 'Nations',
+    icon: '⚑',
+    desc: 'The kingdoms, republics, and empires that carve the land between them.',
+  },
+  {
+    href: '/factions',
+    label: 'Factions',
+    icon: '⚔',
+    desc: 'Guilds, orders, and political blocs that shape the balance of power.',
+  },
+  {
+    href: '/gods',
+    label: 'Gods & Religion',
+    icon: '✦',
+    desc: 'The Myriad, the Wretched Accord, and the divine conflicts that echo through mortal wars.',
+  },
+  {
+    href: '/locations',
+    label: 'Locations',
+    icon: '◎',
+    desc: 'Cities under siege, frontier towns, and forgotten landmarks across the continent.',
+  },
+  {
+    href: '/people',
+    label: 'People of Interest',
+    icon: '◇',
+    desc: 'The warlords, priests, adventurers, and monarchs who leave marks on history.',
+  },
+  {
+    href: '/events',
+    label: 'Events',
+    icon: '⊕',
+    desc: 'Wars, rituals, uprisings — the turning points that made the world what it is.',
+  },
+  {
+    href: '/ethnic-groupings',
+    label: 'Peoples',
+    icon: '◉',
+    desc: 'The cultures, ethnic groups, and peoples who populate Wudor and beyond.',
+  },
+  {
+    href: '/races',
+    label: 'Races',
+    icon: '◈',
+    desc: 'Humans, Elves, Drow, Orcs, Dwarves — the races of the world.',
+  },
+  {
+    href: '/concepts',
+    label: 'Concepts',
+    icon: '∴',
+    desc: 'Magic systems, philosophical frameworks, and the hidden rules of the world.',
+  },
+  {
+    href: '/institutions',
+    label: 'Institutions',
+    icon: '⊞',
+    desc: 'The churches, orders, and governing bodies that outlast any single ruler.',
+  },
+  {
+    href: '/search',
+    label: 'Search All',
+    icon: '⌕',
+    desc: 'Find any entry across every category by name or description.',
+  },
+];
+---
+
+<Base title="Wild Fief">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-map-bg" style="background-image: url('/images/Regions%20of%20Wudor.png');"></div>
+    <div class="hero-vignette"></div>
+
+    <!-- Animated particles -->
+    <canvas id="hero-canvas" style="position:absolute;inset:0;z-index:1;pointer-events:none;"></canvas>
+
+    <div class="hero-content">
+      <span class="hero-ornament">— A Campaign Setting —</span>
+      <h1 class="hero-title">Wild Fief</h1>
+      <p class="hero-subtitle">The Continent of Wudor</p>
+      <p class="hero-tagline">
+        A world of fractured kingdoms, clashing faiths, and ancient conflicts.
+        Where peasants raise armies, gods murder each other, and the line between
+        history and legend is written in blood.
+      </p>
+
+      <div class="hero-nav-grid">
+        <a href="/map" class="hero-nav-btn primary">⊕ Explore the Map</a>
+        <a href="/nations" class="hero-nav-btn">Nations</a>
+        <a href="/gods" class="hero-nav-btn">Gods</a>
+        <a href="/factions" class="hero-nav-btn">Factions</a>
+        <a href="/events" class="hero-nav-btn">Events</a>
+        <a href="/people" class="hero-nav-btn">People</a>
+        <a href="/search" class="hero-nav-btn">⌕ Search</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- World Overview -->
+  <section style="padding: 5rem 2rem; max-width: 1000px; margin: 0 auto;">
+    <div class="divider">The World</div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 3rem 0; align-items: center;">
+      <div>
+        <h2 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--gold-light); margin-bottom: 1rem; margin-top: 0;">
+          The Continent of Wudor
+        </h2>
+        <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+          Wudor is a continent of old wounds and uneasy truces. For generations, the
+          <a href="/nations/kingdom-of-valens">Kingdom of Valens</a> has dominated Central Wudor —
+          until the Second Ettish War shattered the old order.
+        </p>
+        <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+          The <a href="/gods/the-myriad">Myriad</a>, a union of seven gods, has defined
+          faith across the continent for centuries. But new gods rise — born of ambition,
+          of war, of the desperate prayers of those left behind.
+        </p>
+        <p style="color: var(--text-secondary); line-height: 1.8;">
+          To the south, the <a href="/nations/evershining-empire">Evershining Empire</a>
+          watches. In the north, the <a href="/nations/realm-of-velmir">Realm of Velmir</a>
+          sends its raiders. And in the ruins of old battles, something undead still stirs.
+        </p>
+      </div>
+      <div>
+        <a href="/map">
+          <img
+            src="/images/Regions%20of%20Wudor.png"
+            alt="Regions of Wudor — world map"
+            style="width: 100%; border: 1px solid var(--border-gold); border-radius: var(--radius-lg); box-shadow: 0 12px 40px rgba(0,0,0,0.5);"
+            loading="lazy"
+          />
+        </a>
+        <p style="text-align: center; color: var(--text-muted); font-size: 0.8rem; font-style: italic; margin-top: 0.75rem; margin-bottom: 0;">
+          <a href="/map">→ Open the Interactive Map</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Grid -->
+  <section style="padding: 0 2rem 6rem; max-width: 1200px; margin: 0 auto;">
+    <div class="divider">Explore</div>
+
+    <div class="card-grid" style="margin-top: 2.5rem;">
+      {sections.map(sec => (
+        <a href={sec.href} class={`entry-card ${sec.featured ? 'featured-card' : ''}`}>
+          <span style="font-size: 1.3rem; color: var(--gold-muted);">{sec.icon}</span>
+          <div class="card-title" style="font-size: 1.1rem;">{sec.label}</div>
+          <p class="card-desc">{sec.desc}</p>
+          <span class="card-arrow">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Featured conflict -->
+  <section style="background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 2rem;">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <div class="divider">The Central Conflict</div>
+      <h2 style="font-family: var(--font-display); font-size: 1.8rem; color: var(--gold-light); margin-bottom: 1.5rem; margin-top: 2rem;">
+        The Second Ettish War
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.85; font-size: 1.05rem; margin-bottom: 1.5rem; font-style: italic;">
+        <!-- Created by Matthew Morris -->
+      "When the Onyx King died and left no heir but a curse, five marches declared
+        themselves free. The peasants raised a crimson banner. The elves watched from
+        the south. And the gods kept score."
+      </p>
+      <a href="/events/second-ettish-war" class="hero-nav-btn primary" style="display: inline-block; margin-top: 0.5rem;">
+        Read the History →
+      </a>
+    </div>
+  </section>
+
+  <style>
+    .featured-card {
+      border-color: var(--border-gold) !important;
+      background: linear-gradient(135deg, rgba(201, 162, 39, 0.08), var(--bg-card)) !important;
+    }
+
+    @media (max-width: 700px) {
+      section > div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+</Base>
+
+<script>
+// Subtle floating particle effect for hero
+const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement;
+if (canvas) {
+  const ctx = canvas.getContext('2d')!;
+  let W = canvas.width = window.innerWidth;
+  let H = canvas.height = window.innerHeight;
+
+  const particles: { x: number; y: number; r: number; speed: number; opacity: number; drift: number }[] = [];
+  const COUNT = 40;
+
+  for (let i = 0; i < COUNT; i++) {
+    particles.push({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 1.5 + 0.5,
+      speed: Math.random() * 0.3 + 0.05,
+      opacity: Math.random() * 0.4 + 0.05,
+      drift: (Math.random() - 0.5) * 0.2,
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    for (const p of particles) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(201, 162, 39, ${p.opacity})`;
+      ctx.fill();
+      p.y -= p.speed;
+      p.x += p.drift;
+      if (p.y < -10) { p.y = H + 10; p.x = Math.random() * W; }
+      if (p.x < -10) p.x = W + 10;
+      if (p.x > W + 10) p.x = -10;
+    }
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+
+  window.addEventListener('resize', () => {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  });
+}
+</script>

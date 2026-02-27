@@ -1,0 +1,1 @@
+Margard was a city in northern Valens, and the capital of the [[Black Army of Wudor]] for the duration of it's existence.

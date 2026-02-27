@@ -1,0 +1,1 @@
+**Gravewalkers** were clerics of [[The Myriad]] who dedicated their lives towards protecting sanctified grounds.

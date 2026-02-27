@@ -1,0 +1,1 @@
+Amhid I was the High Scion of the [[Evershining Empire]] during the events of the [[Second Ettish War]].

@@ -1,0 +1,174 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Search — Wild Fief">
+  <div class="search-page">
+    <div class="search-header">
+      <h1 style="font-family: var(--font-display); font-size: 2rem; color: var(--gold-light); margin-bottom: 0.5rem;">
+        Search the World
+      </h1>
+      <p style="color: var(--text-muted); font-style: italic;">
+        Search across all entries — factions, gods, nations, people, and more.
+      </p>
+    </div>
+
+    <div class="search-input-wrap">
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <input
+        type="search"
+        class="search-input"
+        id="search-input"
+        placeholder="Search Wild Fief..."
+        autocomplete="off"
+        autofocus
+      />
+    </div>
+
+    <div id="results-count" class="search-results-count" aria-live="polite" aria-atomic="true"></div>
+    <div id="search-results" aria-label="Search results"></div>
+
+    <!-- No-JS fallback message -->
+    <noscript>
+      <p style="color: var(--text-muted); text-align: center; margin-top: 3rem;">
+        JavaScript is required for search functionality.
+      </p>
+    </noscript>
+  </div>
+</Base>
+
+<script>
+  import Fuse from 'fuse.js';
+
+  const input = document.getElementById('search-input') as HTMLInputElement;
+  const resultsEl = document.getElementById('search-results')!;
+  const countEl = document.getElementById('results-count')!;
+
+  const CATEGORY_LABELS: Record<string, string> = {
+    factions: 'Factions',
+    gods: 'Gods & Religion',
+    nations: 'Nations',
+    locations: 'Locations',
+    people: 'People of Interest',
+    events: 'Events',
+    'ethnic-groupings': 'Ethnic Groupings',
+    concepts: 'Concepts',
+    institutions: 'Institutions',
+    races: 'Races',
+    regions: 'Regions',
+    'wider-groupings': 'Wider Groupings',
+  };
+
+  let fuse: Fuse<any>;
+  let allData: any[] = [];
+
+  // Load search index
+  fetch('/search-index.json')
+    .then(r => r.json())
+    .then((data: any[]) => {
+      allData = data;
+      fuse = new Fuse(data, {
+        keys: [
+          { name: 'title', weight: 0.6 },
+          { name: 'description', weight: 0.4 },
+        ],
+        threshold: 0.35,
+        includeScore: true,
+        includeMatches: true,
+        minMatchCharLength: 2,
+      });
+
+      // Show all on empty query
+      if (!input.value.trim()) {
+        renderAll();
+      }
+    })
+    .catch(() => {
+      resultsEl.innerHTML = '<p style="color: var(--text-muted); text-align: center;">Could not load search index.</p>';
+    });
+
+  function highlight(text: string, query: string): string {
+    if (!query || !text) return escapeHtml(text || '');
+    const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return escapeHtml(text).replace(new RegExp(escaped, 'gi'), m => `<mark>${m}</mark>`);
+  }
+
+  function escapeHtml(str: string): string {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function renderAll() {
+    const byCategory: Record<string, any[]> = {};
+    for (const item of allData) {
+      if (!byCategory[item.category]) byCategory[item.category] = [];
+      byCategory[item.category].push({ item });
+    }
+    renderGroups(byCategory, '', allData.length);
+  }
+
+  function renderGroups(byCategory: Record<string, any[]>, query: string, total: number) {
+    countEl.textContent = total === 0
+      ? 'No results found'
+      : query
+        ? `${total} result${total !== 1 ? 's' : ''} for "${query}"`
+        : `${total} entries across all categories`;
+
+    if (total === 0) {
+      resultsEl.innerHTML = `
+        <p style="text-align: center; color: var(--text-muted); margin-top: 3rem; font-style: italic;">
+          No entries match your search. Try different keywords.
+        </p>
+      `;
+      return;
+    }
+
+    let html = '';
+    for (const [cat, items] of Object.entries(byCategory)) {
+      if (items.length === 0) continue;
+      const label = CATEGORY_LABELS[cat] || cat;
+      html += `<div class="search-group-label">${escapeHtml(label)} <span style="color:var(--text-muted)">(${items.length})</span></div>`;
+      for (const { item } of items) {
+        html += `
+          <a href="${item.url}" class="search-result">
+            <span class="search-result-title">${highlight(item.title, query)}</span>
+            <span class="search-result-desc">${highlight((item.description || '').substring(0, 160), query)}</span>
+          </a>
+        `;
+      }
+    }
+    resultsEl.innerHTML = html;
+  }
+
+  let debounceTimer: ReturnType<typeof setTimeout>;
+
+  input.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      const query = input.value.trim();
+
+      if (!fuse) return;
+
+      if (!query) {
+        renderAll();
+        return;
+      }
+
+      const results = fuse.search(query);
+      const byCategory: Record<string, any[]> = {};
+      for (const result of results) {
+        const cat = result.item.category;
+        if (!byCategory[cat]) byCategory[cat] = [];
+        byCategory[cat].push(result);
+      }
+
+      renderGroups(byCategory, query, results.length);
+    }, 150);
+  });
+
+  // Handle URL query param
+  const urlParams = new URLSearchParams(window.location.search);
+  const q = urlParams.get('q');
+  if (q) {
+    input.value = q;
+  }
+</script>

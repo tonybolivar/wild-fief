@@ -1,0 +1,3 @@
+**Kenway Moonsail**, (Velmiric: Genvaeg Munsael) God of Ambition, Scourge of Valens, Divine Herald of the Blackhoods, Slayer of the De Fleurs, Rapist of Montezuma, Engager of Carnal Activities with Amphibious Women, was a legendary adventurer and mythical figure from the [[Realm of Velmir]] who participated in the [[Second Ettish War]], leading the Blackhoods with his comrade-in-arms [[Ferran Alwin]], who would ascend alongside him as the God of Murder.
+
+He ascended to Godhood after the events of the war, sailing to the Desolation and raping Montezuma.

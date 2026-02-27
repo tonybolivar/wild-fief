@@ -1,0 +1,3 @@
+The Almighty Hieronate of the Seven is an international institution recognized by small portions of southern [[Wudor]] and large swathes of Myriadic worshippers in [[Quzarat]] as the sole and final authority on all matters regarding [[The Myriad]] in earthly affairs.
+
+The Hieronate split from the [[Ecumenical Church of the Seven]] the position of the Almighty Hieron and the notion of clerical leadership. While the Hieronate has a supreme authority, the Ecumenicum is conciliar, and their High Adherent does not claim to personally invoke the will of the Myriad in any way, shape, or form.

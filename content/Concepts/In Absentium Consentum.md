@@ -1,0 +1,3 @@
+"In Absentium Consentum" (Crt. "Without regard for the will of others,") is a somatic spell component utilized by worshippers of [[Kenway Moonsail (God)]], particularly the [[Cult of the Lunar Wind]].
+
+While Diety-Mortal relations typically involved beckoning intervention from the diety, the usage of In Absentium Consentum was utilized to power an action or spell based on the force of will placed behind the movement. Those performing their action fully assured that the path they were taking was righteous and just could see great power granted to them by Moonsail. Those who faltered or doubted the validity of their actions could sometimes see no benefit.

@@ -1,0 +1,3 @@
+Galvar (formerly Kalward) was the second-largest city in the [[Kingdom of Valens]], and the primary means for Valenic power projection during the [[Second Ettish War]]. Long regarded as "Valens' capital in the North," Galvar held significance due to it's close proximity to the Elven city of Kalward, which was sacked by the Valeni in 744 VD during their southwest-ward migration.
+
+The Ettish would note it's ideal positioning along Valenic trade routes and create the Free City of Kalward in 1105 VD, close to the old Kalward. It was among the first of the cities to fall under Valenic control in 1174 both due to it's close proximity to core territory of Valens and the locals' eagerness to gain protection from occasional Velmiric raids.

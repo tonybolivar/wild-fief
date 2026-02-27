@@ -1,0 +1,301 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Location pins with approximate positions on the map image
+// These are [lat, lng] in Leaflet's CRS.Simple where the image is the coordinate system
+// We'll use percentage-based [y%, x%] of image dimensions
+const locations = [
+  {
+    id: 'galvar',
+    name: 'Galvar',
+    category: 'locations',
+    slug: 'galvar',
+    desc: 'Second-largest city in the Kingdom of Valens. "Valens\' capital in the North." Primary means for Valenic power projection during the Second Ettish War.',
+    // Position as [y%, x%] of image (0,0 = top-left)
+    pos: [38, 48],
+    color: '#c9a227',
+  },
+  {
+    id: 'zotten',
+    name: 'Zotten',
+    category: 'locations',
+    slug: 'zotten',
+    desc: 'Capital of the Duchy of Zotten, held by House Wyltshire. Defected to the Republic of Ettmark during the Second Ettish War. Site of the famous Siege of Zotten.',
+    pos: [42, 44],
+    color: '#c9a227',
+  },
+  {
+    id: 'margard',
+    name: 'Margard',
+    category: 'locations',
+    slug: 'margard',
+    desc: 'A city in northern Valens. Capital of the Black Army of Wudor during its existence. Birthplace of the Crimson Spear\'s revolt.',
+    pos: [35, 50],
+    color: '#c04040',
+  },
+  {
+    id: 'hanset',
+    name: 'Hanset',
+    category: 'locations',
+    slug: 'hanset',
+    desc: 'Second-largest city in the Republic of Ettmark. Served as the provisional capital during the Second Ettish War.',
+    pos: [40, 41],
+    color: '#4a8a4a',
+  },
+  {
+    id: 'keislau',
+    name: 'Keislau',
+    category: 'locations',
+    slug: 'keislau',
+    desc: 'Formerly known as Arvad. Capital of the Marquisate of Reifenwald, a semi-independent territory within the Second Shining Empire.',
+    pos: [30, 35],
+    color: '#6a4a8a',
+  },
+  {
+    id: 'sordholm',
+    name: 'Sordholm',
+    category: 'locations',
+    slug: 'sordholm',
+    desc: 'Second-largest city in the Huskarldom of Orngard. Served as the base of operations for Admiral Harald Moonsail during the Invasion of Reifenwald.',
+    pos: [22, 30],
+    color: '#4a6a8a',
+  },
+  {
+    id: 'ellet',
+    name: 'Ellet',
+    category: 'locations',
+    slug: 'ellet',
+    desc: 'A small town under the Duchy of Zotten, later absorbed under Valenic control. Founded 814 VD. Population ~150. Early history focused on trade.',
+    pos: [44, 46],
+    color: '#c9a227',
+  },
+];
+
+// Region labels (decorative overlays on the map)
+const regions = [
+  { name: 'Central Wudor', pos: [45, 48], size: 'lg' },
+  { name: 'Northern Wudor', pos: [18, 40], size: 'md' },
+  { name: 'Western Wudor', pos: [40, 22], size: 'md' },
+  { name: 'Ecumenicum', pos: [68, 45], size: 'md' },
+  { name: 'Quzarat', pos: [80, 60], size: 'sm' },
+];
+---
+
+<Base title="World Map — Wild Fief">
+  <div class="map-page">
+    <div id="map-container"></div>
+
+    <!-- Location Sidebar -->
+    <aside class="map-sidebar" id="map-sidebar" role="complementary">
+      <div class="map-sidebar-inner">
+        <button class="map-sidebar-close" id="sidebar-close" aria-label="Close">✕</button>
+        <div id="sidebar-content">
+          <p style="color: var(--text-muted); font-style: italic; font-size: 0.9rem;">
+            Click a location pin on the map to learn more.
+          </p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Legend -->
+    <div class="map-legend" aria-label="Map legend">
+      <div class="map-legend-title">Locations</div>
+      <div class="map-legend-item">
+        <div class="map-legend-dot" style="background: #c9a227;"></div>
+        <span>Kingdom of Valens</span>
+      </div>
+      <div class="map-legend-item">
+        <div class="map-legend-dot" style="background: #4a8a4a;"></div>
+        <span>Republic of Ettmark</span>
+      </div>
+      <div class="map-legend-item">
+        <div class="map-legend-dot" style="background: #c04040;"></div>
+        <span>Black Army territory</span>
+      </div>
+      <div class="map-legend-item">
+        <div class="map-legend-dot" style="background: #4a6a8a;"></div>
+        <span>Realm of Velmir</span>
+      </div>
+      <div class="map-legend-item">
+        <div class="map-legend-dot" style="background: #6a4a8a;"></div>
+        <span>Second Shining Empire</span>
+      </div>
+    </div>
+
+    <!-- Map controls hint -->
+    <div style="position: absolute; top: 1rem; left: 50%; transform: translateX(-50%); z-index: 10; background: var(--bg-overlay); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 0.4rem 1rem; font-family: var(--font-heading); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted);">
+      Scroll to zoom · Drag to pan · Click pins for details
+    </div>
+  </div>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <script define:vars={{ locations, regions }}>
+    // Load Leaflet dynamically
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+    script.onload = initMap;
+    document.head.appendChild(script);
+
+    function initMap() {
+      const L = window.L;
+      const mapEl = document.getElementById('map-container');
+
+      // Image dimensions — we'll use a coordinate system where the image fills [0,0] to [100,100]
+      const imgW = 2000;
+      const imgH = 1500;
+
+      // Create custom CRS for image-based map
+      const map = L.map(mapEl, {
+        crs: L.CRS.Simple,
+        minZoom: -2,
+        maxZoom: 3,
+        zoomSnap: 0.25,
+        zoomControl: true,
+        attributionControl: false,
+      });
+
+      // Image bounds in lat/lng space (we treat pixels as coordinates)
+      const bounds = [[0, 0], [imgH, imgW]];
+
+      L.imageOverlay('/images/Regions%20of%20Wudor.png', bounds, {
+        opacity: 1,
+        className: 'map-image-overlay',
+      }).addTo(map);
+
+      // Fit to bounds with some padding
+      map.fitBounds(bounds, { padding: [20, 20] });
+
+      // Custom marker icon factory
+      function createMarkerIcon(color) {
+        return L.divIcon({
+          className: '',
+          html: `
+            <div style="
+              width: 14px; height: 14px;
+              background: ${color};
+              border: 2px solid rgba(255,255,255,0.3);
+              border-radius: 50%;
+              box-shadow: 0 0 0 3px rgba(0,0,0,0.4), 0 0 12px ${color}88;
+              cursor: pointer;
+              transition: transform 0.15s ease;
+            "></div>
+          `,
+          iconSize: [14, 14],
+          iconAnchor: [7, 7],
+        });
+      }
+
+      // Convert percentage positions to pixel coordinates
+      // pos = [y%, x%] → [lat, lng] where lat = (1 - y%) * imgH, lng = x% * imgW
+      function posToLatLng([yPct, xPct]) {
+        return [imgH - (yPct / 100) * imgH, (xPct / 100) * imgW];
+      }
+
+      const sidebar = document.getElementById('map-sidebar');
+      const sidebarContent = document.getElementById('sidebar-content');
+
+      // Add location markers
+      locations.forEach(loc => {
+        const latLng = posToLatLng(loc.pos);
+        const marker = L.marker(latLng, {
+          icon: createMarkerIcon(loc.color),
+          title: loc.name,
+        }).addTo(map);
+
+        // Name label
+        L.tooltip({
+          permanent: true,
+          direction: 'top',
+          offset: [0, -12],
+          className: 'location-label-tooltip',
+        })
+          .setContent(`<span style="
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            color: rgba(232, 220, 200, 0.9);
+            text-shadow: 0 1px 4px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.8);
+            white-space: nowrap;
+            background: none;
+            border: none;
+            box-shadow: none;
+            padding: 0;
+          ">${loc.name}</span>`)
+          .setLatLng(latLng)
+          .addTo(map);
+
+        marker.on('click', () => {
+          sidebarContent.innerHTML = `
+            <div class="map-location-category">Location</div>
+            <h2 class="map-location-title">${loc.name}</h2>
+            <p class="map-location-desc">${loc.desc}</p>
+            <a href="/${loc.category}/${loc.slug}" class="map-location-link">
+              Full Entry →
+            </a>
+          `;
+          sidebar.classList.add('open');
+        });
+      });
+
+      // Region labels as tooltips
+      regions.forEach(region => {
+        const latLng = posToLatLng(region.pos);
+        const fontSize = region.size === 'lg' ? '0.85rem' : region.size === 'md' ? '0.7rem' : '0.6rem';
+        L.tooltip({
+          permanent: true,
+          direction: 'center',
+          className: 'region-label-tooltip',
+        })
+          .setContent(`<span style="
+            font-family: 'Cinzel', serif;
+            font-size: ${fontSize};
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(201, 162, 39, 0.5);
+            text-shadow: 0 0 12px rgba(0,0,0,0.9);
+            pointer-events: none;
+          ">${region.name}</span>`)
+          .setLatLng(latLng)
+          .addTo(map);
+      });
+
+      // Close sidebar
+      document.getElementById('sidebar-close').addEventListener('click', () => {
+        sidebar.classList.remove('open');
+      });
+
+      // Style the tooltips to have no visible box
+      const style = document.createElement('style');
+      style.textContent = `
+        .location-label-tooltip,
+        .region-label-tooltip {
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+          padding: 0 !important;
+        }
+        .location-label-tooltip::before,
+        .region-label-tooltip::before {
+          display: none !important;
+        }
+        .leaflet-tooltip {
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+        }
+        .map-image-overlay {
+          image-rendering: -webkit-optimize-contrast;
+          image-rendering: crisp-edges;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  </script>
+
+  <style>
+    .map-page { height: calc(100vh - var(--nav-height)); }
+    #map-container { background: #0a0804; }
+  </style>
+</Base>

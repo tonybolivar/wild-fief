@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const categories = [
+    { id: 'factions', label: 'Factions', desc: 'Guilds, orders, rebel movements, and political blocs that shape the balance of power across Wudor.' },
+    { id: 'gods', label: 'Gods & Religion', desc: 'The divine pantheons of Wudor — the Myriad, the Wretched Accord, and the gods who rose from mortal deeds.' },
+    { id: 'nations', label: 'Nations', desc: 'The kingdoms, republics, empires, and client states that carve the continent between them.' },
+    { id: 'locations', label: 'Locations', desc: 'Cities under siege, frontier towns, strategic fortresses, and forgotten landmarks.' },
+    { id: 'people', label: 'People of Interest', desc: 'The warlords, priests, adventurers, and monarchs whose deeds shape living memory.' },
+    { id: 'events', label: 'Events', desc: 'Wars, uprisings, rituals, and disasters — the turning points that made Wudor what it is today.' },
+    { id: 'ethnic-groupings', label: 'Ethnic Groupings', desc: 'The cultures, ethnicities, and peoples who populate Wudor and the wider world.' },
+    { id: 'concepts', label: 'Concepts', desc: 'Magic systems, philosophical frameworks, traditions, and the hidden rules of the world.' },
+    { id: 'institutions', label: 'Institutions', desc: 'The churches, knightly orders, courts, and governing bodies that outlast any single ruler.' },
+    { id: 'races', label: 'Races', desc: 'Humans, Elves, Drow, Orcs, Dwarves — the races of Wudor and their place in the world.' },
+    { id: 'regions', label: 'Regions', desc: 'The geographic regions of Wudor and the wider world, from the frozen north to the Quzarati south.' },
+    { id: 'wider-groupings', label: 'Wider Groupings', desc: 'Broad ethnic and cultural groupings that span multiple nations and peoples.' },
+  ];
+
+  return categories.map(cat => ({
+    params: { category: cat.id },
+    props: cat,
+  }));
+}
+
+const { id, label, desc } = Astro.props;
+
+const allEntries = await getCollection('entries');
+const entries = allEntries
+  .filter(e => e.data.category === id)
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<Base title={`${label} — Wild Fief`} description={desc}>
+  <div class="category-header">
+    <span class="category-header-ornament">— Wild Fief —</span>
+    <h1 class="category-title">{label}</h1>
+    <p class="category-desc">{desc}</p>
+  </div>
+
+  <div class="page-container" style="padding-bottom: 5rem;">
+    {entries.length === 0 ? (
+      <div style="text-align: center; padding: 4rem; color: var(--text-muted); font-style: italic;">
+        <p>No entries found in this category yet.</p>
+        <a href="/" style="color: var(--gold); margin-top: 1rem; display: inline-block;">← Back to home</a>
+      </div>
+    ) : (
+      <div class="card-grid">
+        {entries.map(entry => (
+          <a href={`/${entry.data.category}/${entry.data.entrySlug}`} class="entry-card">
+            {entry.data.image && (
+              <img
+                src={entry.data.image}
+                alt={entry.data.title}
+                class="card-image"
+                loading="lazy"
+                onerror="this.style.display='none'"
+              />
+            )}
+            <span class="card-category-badge">{entry.data.categoryLabel || entry.data.category}</span>
+            <div class="card-title">{entry.data.title}</div>
+            {entry.data.description && (
+              <p class="card-desc">
+                {entry.data.description.length > 150
+                  ? entry.data.description.substring(0, 150) + '…'
+                  : entry.data.description}
+              </p>
+            )}
+            <span class="card-arrow">→</span>
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</Base>

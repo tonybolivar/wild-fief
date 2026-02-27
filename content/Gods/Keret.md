@@ -1,0 +1,1 @@
+Keret, "Commander of the Immeasurable Legions of the Dead," was the god of Death, Decay, and 

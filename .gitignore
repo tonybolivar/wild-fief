@@ -1,0 +1,22 @@
+node_modules/
+dist/
+.env
+.DS_Store
+Thumbs.db
+*.log
+
+# Claude Code
+.claude/
+
+# Astro
+.astro/
+
+# Obsidian app config (not world content)
+content/.obsidian/
+
+# Generated content (rebuilt from source on deploy)
+src/content/entries/
+public/images/
+public/search-index.json
+public/categories.json
+public/styles/

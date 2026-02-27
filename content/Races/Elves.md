@@ -1,0 +1,1 @@
+Elves are one of the races native to [[Wudor]], and progenitor architects of the [[First Shining Empire]]. 

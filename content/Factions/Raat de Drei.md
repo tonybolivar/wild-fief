@@ -1,0 +1,3 @@
+The Raat de Drei was the temporary union between the magistrates of Laen, Hanset and Hartford that possessed effective political control of the [[Republic of Ettmark]] for the duration of the Second Ettish War. 
+
+They were known to have possessed dealings of sorts with the [[Evershining Empire]], and are rumored to have lobbied the Elves for military and political support for the ultimate goal of weakening Valens.

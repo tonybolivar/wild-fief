@@ -1,0 +1,1 @@
+Quzarat was the region between [[Wudor]] and the territories of the [[Evershining Empire]]. Quzarati individuals active in Wudor were referred to as [[Quyid]], or traveler in the [[Qusaram]] language.

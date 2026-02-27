@@ -1,0 +1,3 @@
+The Aînement was the explosion of the population of Valenic nobility after [[Hearth-sonning]] was re-legalized by the Valenic crown. Under such a system, land was split between legally male female heirs and the sons of already lacking-in-land nobility, and dynastic chains grew beyond acceptable sizes. 
+
+The result was a large number of titled lower nobility with more or less nothing to their name in Central Wudor, who would begin to use what resources they had to find work outside of their dynastic domain.

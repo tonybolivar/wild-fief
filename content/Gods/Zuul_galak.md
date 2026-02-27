@@ -1,0 +1,1 @@
+Zuul'galak was one of the three gods borne of the death of [[Voadn]], and was the god of Nascense. Created from the portions of Voadn that loathed his mother [[Miasha]]'s supposed favoritism towards [[Vinhema]], Zuul'galak was created as the god of Nascence,

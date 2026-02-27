@@ -1,0 +1,1 @@
+The Second Ettish War refers to both the organized revolt of several Ettish fiefdoms under the moniker of the Consulate of the Five Marches of the [[Republic of Ettmark]] against the [[Kingdom of Valens]], and the Valenic campaign against sporadic uprisings of peasantry under the [[Black Army of Wudor]].

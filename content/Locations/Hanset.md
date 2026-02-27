@@ -1,0 +1,1 @@
+**Hanset** (Ett. Haanzet) was the second-largest city in the [[Republic of Ettmark]], and the provisional capital of the state during the [[Second Ettish War]].

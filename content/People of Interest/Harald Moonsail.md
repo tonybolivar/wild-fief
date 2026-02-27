@@ -1,0 +1,7 @@
+Harald Moonsail was an admiral in the [[Realm of Velmir]] who oversaw the [[Invasion of Reifenwald]]. He is the great-great-great-great-grandfather of [[Kenway Moonsail (Person)]].
+
+While summaries of his motivations for invading the [[Marquisate of Reifenwald]] are stretched, ranging from simply doing his duty as a military leader in Velmir, to accusations that he wished to claim personal power for himself, it can be reasoned that Harald's doctrine was mainly a religious one. Frequently and boldly, he proclaimed that the fall of the [[Huskarldom of Orngard]] would mean the establishment of religious dominance by servants of [[The Myriad]] over all of Wudor, and lead to the eventual fall of the Realm of Velmir itself once the Myriadics grew powerful enough.
+
+Despite this, he was known as a capable commander and charismatic leader, and was personally involved in the recruitment of several unruly clans into the invasion. Some note that this development aided the process of governmental reform in Velmir proper, as those unwilling to submit to the status quo were largely among those who set off to do battle with the Imperials.
+
+He was known to have a personal vendetta against the [[Kingdom of Valens]], both for their disruption of the [[Velmiric Slave Raids]] in northern Wudor, and for their attempts to establish naval dominance in the shared Sea of Velmir.

@@ -1,0 +1,1 @@
+Aucen "The Righteous" de Fleur was the ruler of the Duchy of Vourgnon, a position he utilized to unite the various warring fiefdoms of Valens in 788 VD. He is known as the patron of the ruling De Fleur dynasty of Valens.

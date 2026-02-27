@@ -1,0 +1,184 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const allEntries = await getCollection('entries');
+
+// Build graph data
+const CATEGORY_COLORS: Record<string, string> = {
+  factions: '#c9a227',
+  gods: '#8b4513',
+  nations: '#4a6a8a',
+  locations: '#4a7a4a',
+  people: '#8a4a6a',
+  events: '#8a6a4a',
+  'ethnic-groupings': '#5a7a8a',
+  concepts: '#6a5a8a',
+  institutions: '#7a5a4a',
+  races: '#5a8a7a',
+  regions: '#7a8a5a',
+  'wider-groupings': '#8a7a5a',
+};
+
+// Build nodes and edges
+const nodes = allEntries.map(entry => ({
+  id: `${entry.data.category}/${entry.data.entrySlug}`,
+  title: entry.data.title,
+  category: entry.data.category,
+  url: `/${entry.data.category}/${entry.data.entrySlug}`,
+  color: CATEGORY_COLORS[entry.data.category] || '#666',
+}));
+
+// Build edges from references
+const edges: { source: string; target: string; label: string }[] = [];
+for (const entry of allEntries) {
+  let refs: { text: string; category: string; slug: string }[] = [];
+  try { refs = JSON.parse(entry.data.references || '[]'); } catch {}
+  const sourceId = `${entry.data.category}/${entry.data.entrySlug}`;
+  for (const ref of refs) {
+    const targetId = `${ref.category}/${ref.slug}`;
+    // Only add if target exists
+    if (nodes.find(n => n.id === targetId)) {
+      edges.push({ source: sourceId, target: targetId, label: 'relates to' });
+    }
+  }
+}
+
+const graphData = JSON.stringify({ nodes, edges });
+---
+
+<Base title="Connections — Wild Fief">
+  <div style="padding: 3rem 2rem 1rem; text-align: center; max-width: 700px; margin: 0 auto;">
+    <h1 style="font-family: var(--font-display); font-size: 2rem; color: var(--gold-light); margin-bottom: 0.5rem;">
+      Relationship Web
+    </h1>
+    <p style="color: var(--text-muted); font-style: italic; margin-bottom: 2rem;">
+      An interactive graph of connections between factions, nations, gods, and people.
+      Drag nodes · Scroll to zoom · Click a node to visit its entry.
+    </p>
+
+    <!-- Legend -->
+    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-bottom: 2rem;">
+      {Object.entries(CATEGORY_COLORS).map(([cat, color]) => (
+        <span style={`display:flex;align-items:center;gap:0.35rem;font-family:var(--font-heading);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);`}>
+          <span style={`width:8px;height:8px;border-radius:50%;background:${color};display:inline-block;`}></span>
+          {cat.replace(/-/g, ' ')}
+        </span>
+      ))}
+    </div>
+  </div>
+
+  <div style="padding: 0 2rem 4rem; max-width: 1400px; margin: 0 auto;">
+    <div id="graph-wrap" style="width:100%;height:650px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;position:relative;">
+      <svg id="graph-svg" width="100%" height="100%"></svg>
+      <!-- Tooltip -->
+      <div id="graph-tooltip" style="position:absolute;display:none;background:var(--bg-secondary);border:1px solid var(--border-gold);border-radius:var(--radius-md);padding:0.6rem 0.9rem;pointer-events:none;z-index:20;">
+        <div id="tooltip-title" style="font-family:var(--font-heading);font-size:0.85rem;color:var(--gold-light);"></div>
+        <div id="tooltip-cat" style="font-family:var(--font-heading);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);"></div>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script define:vars={{ graphData }}>
+  const data = JSON.parse(graphData);
+
+  // Load D3
+  const script = document.createElement('script');
+  script.src = 'https://unpkg.com/d3@7/dist/d3.min.js';
+  script.onload = () => initGraph(data);
+  document.head.appendChild(script);
+
+  function initGraph({ nodes, edges }) {
+    const d3 = window.d3;
+    const wrap = document.getElementById('graph-wrap');
+    const svg = d3.select('#graph-svg');
+    const W = wrap.clientWidth;
+    const H = wrap.clientHeight;
+    const tooltip = document.getElementById('graph-tooltip');
+    const tooltipTitle = document.getElementById('tooltip-title');
+    const tooltipCat = document.getElementById('tooltip-cat');
+
+    svg.style('background', 'var(--bg-card)');
+
+    // Zoom
+    const g = svg.append('g');
+    svg.call(d3.zoom().scaleExtent([0.2, 4]).on('zoom', e => {
+      g.attr('transform', e.transform);
+    }));
+
+    // Simulation
+    const sim = d3.forceSimulation(nodes)
+      .force('link', d3.forceLink(edges).id(d => d.id).distance(80).strength(0.4))
+      .force('charge', d3.forceManyBody().strength(-120))
+      .force('center', d3.forceCenter(W / 2, H / 2))
+      .force('collision', d3.forceCollide(18));
+
+    // Draw edges
+    const link = g.append('g')
+      .selectAll('line')
+      .data(edges)
+      .join('line')
+      .attr('stroke', 'rgba(90, 68, 30, 0.35)')
+      .attr('stroke-width', 1);
+
+    // Draw nodes
+    const node = g.append('g')
+      .selectAll('circle')
+      .data(nodes)
+      .join('circle')
+      .attr('r', 6)
+      .attr('fill', d => d.color)
+      .attr('stroke', 'rgba(0,0,0,0.3)')
+      .attr('stroke-width', 1.5)
+      .style('cursor', 'pointer')
+      .on('click', (e, d) => { window.location.href = d.url; })
+      .on('mouseover', (e, d) => {
+        d3.select(e.currentTarget).attr('r', 9).attr('stroke', d.color).attr('stroke-width', 2);
+        tooltipTitle.textContent = d.title;
+        tooltipCat.textContent = d.category.replace(/-/g, ' ');
+        tooltip.style.display = 'block';
+      })
+      .on('mousemove', e => {
+        const rect = wrap.getBoundingClientRect();
+        let x = e.clientX - rect.left + 12;
+        let y = e.clientY - rect.top - 30;
+        if (x + 200 > W) x -= 220;
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+      })
+      .on('mouseout', (e, d) => {
+        d3.select(e.currentTarget).attr('r', 6).attr('stroke', 'rgba(0,0,0,0.3)').attr('stroke-width', 1.5);
+        tooltip.style.display = 'none';
+      })
+      .call(d3.drag()
+        .on('start', (e, d) => { if (!e.active) sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+        .on('drag', (e, d) => { d.fx = e.x; d.fy = e.y; })
+        .on('end', (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; })
+      );
+
+    // Node labels for named nodes
+    const label = g.append('g')
+      .selectAll('text')
+      .data(nodes)
+      .join('text')
+      .text(d => d.title.length > 18 ? d.title.substring(0, 16) + '…' : d.title)
+      .attr('font-family', 'Cinzel, serif')
+      .attr('font-size', '8px')
+      .attr('fill', 'rgba(232, 220, 200, 0.7)')
+      .attr('text-anchor', 'middle')
+      .attr('dy', '18px')
+      .style('pointer-events', 'none');
+
+    sim.on('tick', () => {
+      link
+        .attr('x1', d => d.source.x)
+        .attr('y1', d => d.source.y)
+        .attr('x2', d => d.target.x)
+        .attr('y2', d => d.target.y);
+
+      node.attr('cx', d => d.x).attr('cy', d => d.y);
+      label.attr('x', d => d.x).attr('y', d => d.y);
+    });
+  }
+</script>

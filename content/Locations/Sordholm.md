@@ -1,0 +1,1 @@
+Sordholm was the second-largest city in the original [[Huskarldom of Orngard]], and the base of operations of [[Harald Moonsail]] during the resurgent [[Invasion of Reifenwald]].

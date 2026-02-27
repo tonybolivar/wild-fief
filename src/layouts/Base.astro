@@ -1,0 +1,84 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  class?: string;
+}
+
+const {
+  title = 'Wild Fief',
+  description = 'A world of fractured kingdoms, clashing faiths, and ancient conflicts — a living campaign setting for the tabletop adventurer.',
+  image = '/images/Regions of Wudor.png',
+  class: bodyClass = '',
+} = Astro.props;
+
+const siteTitle = title === 'Wild Fief' ? title : `${title} — Wild Fief`;
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/map', label: 'Map' },
+  { href: '/nations', label: 'Nations' },
+  { href: '/factions', label: 'Factions' },
+  { href: '/gods', label: 'Gods' },
+  { href: '/locations', label: 'Locations' },
+  { href: '/people', label: 'People' },
+  { href: '/events', label: 'Events' },
+  { href: '/ethnic-groupings', label: 'Peoples' },
+  { href: '/races', label: 'Races' },
+  { href: '/concepts', label: 'Concepts' },
+  { href: '/institutions', label: 'Institutions' },
+  { href: '/connections', label: 'Web' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <meta property="og:title" content={siteTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <title>{siteTitle}</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- Fonts preload -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+  <!-- global.css imported via Astro above -->
+</head>
+<body class={bodyClass}>
+
+  <nav class="site-nav" role="navigation">
+    <a href="/" class="nav-logo">Wild Fief</a>
+    <ul class="nav-links" role="list">
+      {navLinks.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class={currentPath.startsWith(link.href) ? 'active' : ''}
+          >{link.label}</a>
+        </li>
+      ))}
+    </ul>
+    <a href="/search" class="nav-search-btn" aria-label="Search">⌕ Search</a>
+  </nav>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer style="border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; color: var(--text-muted); font-family: var(--font-heading); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 4rem;">
+    <p style="margin-bottom: 0.5rem;">Wild Fief &mdash; A Custom World</p>
+    <p style="margin-bottom: 0; font-style: italic; font-family: var(--font-body); text-transform: none; letter-spacing: 0; font-size: 0.8rem; color: var(--text-muted);">
+      Wild Fief is a world created by <strong style="color: var(--text-secondary);">Matthew Morris</strong>. All rights reserved.
+    </p>
+  </footer>
+
+</body>
+</html>
+

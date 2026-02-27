@@ -1,0 +1,3 @@
+The **Carettic War** was a conflict spanning roughly the course of 1388 BV, in which the Evershining Empire attempted to dislodge the [[Kingdom of Valens]] as a power in Central Wudor and secure future expansion routes.
+
+While a technical victory for the [[Valenard People]] due to their denial of each of the [[Evershining Empire]]'s major objectives during the conflict, the Valenic army utilized much of it's remaining political and military capital fighting the Elves, leading to poor performance in the opening stages of the [[Second Ettish War]].

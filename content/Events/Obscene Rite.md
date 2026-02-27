@@ -1,0 +1,1 @@
+The **Obscene Rite** was an attempt by Valenic King [[Archebaud de Fleur]]

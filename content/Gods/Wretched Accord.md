@@ -1,0 +1,2 @@
+The Wretched Accord was a temporary collective of three of the five Gods churned from the death of the primordial God [[Voadn]], dedicated towards breaking the monopolistic hold on human worship possessed by [[The Myriad]]. It originally consisted of [[Keret]], [[Zuruk]], and [[Zuul'galak]] until the latter was deceived, killed, and usurped by the malevolent Archfey [[Vhaimos]], who utilized his essence to ascend herself to godhood.
+

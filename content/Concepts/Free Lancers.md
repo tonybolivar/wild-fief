@@ -1,0 +1,1 @@
+A **Free Lancer** was a mercenary of the [[Ettish People]] operating outside the contemporary territories of the [[Republic of Ettmark]]

@@ -1,0 +1,1 @@
+Zahrat II was the High Scion of the [[Evershining Empire]] during the events of the [[Invasion of Reifenwald]]

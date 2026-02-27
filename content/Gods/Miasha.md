@@ -1,0 +1,3 @@
+Miasha was the primordial God of Life, once a mortal granted eternal life and godhood by her late father, [[Consentos]].
+
+Betrayed and murdered by her son [[Voadn]], her sudden split led to powerful spirits and mortals being able to claim Godhood in Wudor. Voadn and his sister, [[Vinhema]], would give their lives creating the [Wretched Accord] and [The Myriad] respectively, continuing the eternal war between the two through two separate pantheons in Wudor.

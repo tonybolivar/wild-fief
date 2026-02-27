@@ -1,0 +1,1 @@
+Orcs were a race released into the world by [[Zuul'galak]] in order to wreak havoc on [[Vinhema]] and her Elven worshippers. In the events of Wild Fief, they are endemic to the forests of [[Wudor]] as well as the eastern steppes, having changed their fealty to the god of Warfare [[Jhul'zurjin]].

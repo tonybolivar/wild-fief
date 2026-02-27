@@ -1,0 +1,167 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('entries');
+  return entries.map(entry => ({
+    params: {
+      category: entry.data.category,
+      slug: entry.data.entrySlug,
+    },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Parse references for related entries sidebar
+let references: { text: string; category: string; slug: string }[] = [];
+try {
+  references = JSON.parse(entry.data.references || '[]');
+  // Deduplicate
+  const seen = new Set<string>();
+  references = references.filter(r => {
+    const key = `${r.category}/${r.slug}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).slice(0, 8);
+} catch {}
+
+const CATEGORY_LABELS: Record<string, string> = {
+  factions: 'Factions',
+  gods: 'Gods & Religion',
+  nations: 'Nations',
+  locations: 'Locations',
+  people: 'People of Interest',
+  events: 'Events',
+  'ethnic-groupings': 'Ethnic Groupings',
+  concepts: 'Concepts',
+  institutions: 'Institutions',
+  races: 'Races',
+  regions: 'Regions',
+  'wider-groupings': 'Wider Groupings',
+};
+
+const catLabel = CATEGORY_LABELS[entry.data.category] || entry.data.category;
+---
+
+<Base
+  title={`${entry.data.title} — Wild Fief`}
+  description={entry.data.description}
+  image={entry.data.image}
+>
+  <div class="entry-layout">
+    <!-- Main Content -->
+    <article class="entry-main">
+      <header class="entry-header">
+        <!-- Breadcrumb -->
+        <nav class="entry-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="entry-breadcrumb-sep">›</span>
+          <a href={`/${entry.data.category}`}>{catLabel}</a>
+          <span class="entry-breadcrumb-sep">›</span>
+          <span style="color: var(--text-secondary);">{entry.data.title}</span>
+        </nav>
+
+        <p class="entry-subtitle">{catLabel}</p>
+        <h1 class="entry-title">{entry.data.title}</h1>
+
+        {entry.data.description && (
+          <p class="entry-description">{entry.data.description}</p>
+        )}
+      </header>
+
+      <!-- Render markdown content -->
+      <div class="entry-content">
+        <Content />
+      </div>
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="entry-sidebar">
+      {references.length > 0 && (
+        <div class="sidebar-panel">
+          <h3 class="sidebar-heading">Related Entries</h3>
+          {references.map(ref => (
+            <a href={`/${ref.category}/${ref.slug}`} class="related-entry">
+              <span class="related-entry-name">{ref.text}</span>
+              <span class="related-entry-category">
+                {CATEGORY_LABELS[ref.category] || ref.category}
+              </span>
+            </a>
+          ))}
+        </div>
+      )}
+
+      <div class="sidebar-panel">
+        <h3 class="sidebar-heading">Category</h3>
+        <a
+          href={`/${entry.data.category}`}
+          style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); font-family: var(--font-heading); font-size: 0.85rem; transition: color var(--transition); text-decoration: none;"
+          onmouseover="this.style.color='var(--gold)'"
+          onmouseout="this.style.color='var(--text-secondary)'"
+        >
+          <span>←</span>
+          <span>All {catLabel}</span>
+        </a>
+      </div>
+
+      {entry.data.tags && entry.data.tags.length > 0 && (
+        <div class="sidebar-panel">
+          <h3 class="sidebar-heading">Tags</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+            {entry.data.tags.map((tag: string) => (
+              <span style="
+                font-family: var(--font-heading);
+                font-size: 0.6rem;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--text-muted);
+                border: 1px solid var(--border);
+                padding: 0.2rem 0.5rem;
+                border-radius: var(--radius-sm);
+              ">{tag}</span>
+            ))}
+          </div>
+        </div>
+      )}
+    </aside>
+  </div>
+</Base>
+
+<style>
+  /* Additional entry content styles */
+  .entry-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+  }
+  .entry-content :global(th) {
+    background: var(--bg-secondary);
+    color: var(--gold);
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.6rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-gold);
+  }
+  .entry-content :global(td) {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+  }
+  .entry-content :global(tr:hover td) {
+    background: var(--bg-card-hover);
+  }
+  .entry-content :global(img) {
+    max-width: 100%;
+    margin: 1.5rem auto;
+    display: block;
+  }
+</style>

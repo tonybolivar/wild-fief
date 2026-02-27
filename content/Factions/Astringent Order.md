@@ -1,0 +1,3 @@
+**The Astringent Order of Brothers Lay**, (Vln: L'Astringent) (Trc: Die Astringente), were a group of monster hunters and mercenaries living in [[Central Wudor]], with the express goal of helping the local populace recover from the damage dealt by the [[Onyx King's War]]. 
+
+Specializing in hunting and killing fiends and undead, the Astringent routinely provided support and advice to local nobility and rulers on both sides of the [[Second Ettish War]] in order to prevent the growth of ghoul hordes common in the immediate aftermath of the [[Obscene Rite]]. 

@@ -1,0 +1,3 @@
+Eagleheart Elves are a sub-grouping of Forest [[Elves]] endemic to the islands of Ionidar north of [[Central Wudor]]. Split into numerous feuding Caigdoms, they only recently unified under a High Caigean to resist incursions by the [[Berodic People]].
+
+Several Eagleheart Elves were employed as naval auxiliaries by Velmir's mutual rival in the [[Kingdom of Valens]]. Eagleheart Elves were some of the primary targets of [[Velmiric Slave Raids]] launched into Central Wudor in the 1300s-1400s VD.

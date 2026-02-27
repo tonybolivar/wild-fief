@@ -1,0 +1,4 @@
+Jhul'zurjin was the patron god of warfare and bloodlust, one of the five deities born of [[Voadn]]'s death. He would refuse repeated attempts to join the Wretched Accord, instead garnering worship from the Forest Orcs of Wudor.
+
+Orcish martial culture is heavily based on Jhul'zurjin's teachings, and is a large portion of why their random acts of mercy in an otherwise cruel and uncaring society vexed humanity for so long. Stipulated in his teachings is that those who have picked a fight and lost should be given a quick death, while those who intended not to fight in the first place should be allowed the right to live- and nothing more. Thus, despite their tendency to consume the flesh of the fallen on the battlefield, Orcs rarely consume their slaves and generally provide them with conditions considered 'generous' by Orcish standards.
+
