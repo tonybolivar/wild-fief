@@ -1,0 +1,290 @@
+---
+import Base from '../layouts/Base.astro';
+
+type EventCategory = 'conflict' | 'political' | 'arcane' | 'cultural';
+
+interface TimelineEvent {
+  year: string;
+  era: string;
+  title: string;
+  desc: string;
+  category: EventCategory;
+  link: string;
+}
+
+const events: TimelineEvent[] = [
+  // The Founding
+  {
+    year: 'c. 689',
+    era: 'The Founding',
+    title: 'Valenais Migration',
+    desc: 'The Valenais people, fleeing Orcish invasion in the east, migrate into Central Wudor and begin establishing fiefdoms.',
+    category: 'political',
+    link: '/nations/kingdom-of-valens',
+  },
+  {
+    year: 'c. 788',
+    era: 'The Founding',
+    title: 'Kingdom of Valens Founded',
+    desc: 'Aucen I de Fleur of Galvar unifies the scattered Valenic fiefdoms, establishing the Kingdom of Valens as the dominant power in Central Wudor.',
+    category: 'political',
+    link: '/nations/kingdom-of-valens',
+  },
+  // Pre-War
+  {
+    year: 'Undated',
+    era: 'Pre-War Period',
+    title: 'The Aînement',
+    desc: 'Re-legalization of Hearth-sonning by the Valenic crown triggers an explosion of landless lower nobility — producing a restless class of titled but propertyless knights who seek fortunes abroad.',
+    category: 'cultural',
+    link: '/events/the-a-nement',
+  },
+  // Onyx King
+  {
+    year: 'Late 1200s',
+    era: "The Onyx King's Wars",
+    title: 'Archebaud de Fleur Rises',
+    desc: 'The Onyx King takes power over Valens, beginning a program of rapid military expansion and aggressive consolidation of Ettish territories.',
+    category: 'political',
+    link: '/people/archebaud-de-fleur',
+  },
+  {
+    year: 'c. 1280s',
+    era: "The Onyx King's Wars",
+    title: 'Velmiric Slave Raids',
+    desc: "Velmiric raiders target coastal Ettish lords sworn to Valens. The raids serve as Archebaud's stated pretext for invasion — a justification widely regarded as disingenuous.",
+    category: 'conflict',
+    link: '/events/velmiric-slave-raids',
+  },
+  {
+    year: 'c. 1290s',
+    era: "The Onyx King's Wars",
+    title: "Onyx King's Wars Begin",
+    desc: 'Archebaud launches campaigns to subjugate independent Ettish polities and deny the Evershining Empire its most accessible expansion routes into Central Wudor.',
+    category: 'conflict',
+    link: '/events/onyx-king-s-war',
+  },
+  {
+    year: 'c. 1298',
+    era: "The Onyx King's Wars",
+    title: 'Republic of Ettmark Founded',
+    desc: 'Mid-war, the Ettish cities of Hanset and Zotten unite under the banner of the Republic of Ettmark. The pro-independence Schildswarths eclipse the pro-Valenic Valkoons across the region.',
+    category: 'political',
+    link: '/nations/republic-of-ettmark',
+  },
+  {
+    year: 'c. 1300',
+    era: "The Onyx King's Wars",
+    title: 'The Obscene Rite',
+    desc: 'Seeking to cement his conquests through necromancy, Archebaud attempts a ritual to raise an undead legion. He is killed mid-cast — summoning the masterless Vehement and triggering the collapse of his empire.',
+    category: 'arcane',
+    link: '/events/obscene-rite',
+  },
+  // Second Ettish War
+  {
+    year: '10 Entence, 1302',
+    era: 'The Second Ettish War',
+    title: 'Siege of Zotten',
+    desc: "Clement de Fleur assaults Zotten to open a route toward Ettmark's provisional capital. Defender Zytwick VanEizenga uses marshy terrain to rout Valenic heavy cavalry, destroying much of Valens' noble-horsemen in a single engagement.",
+    category: 'conflict',
+    link: '/events/siege-of-zotten',
+  },
+  {
+    year: 'c. 1302',
+    era: 'The Second Ettish War',
+    title: 'Torching of Vyltwick',
+    desc: "Artain I of Valens burns Vyltwick's fields to deny resources to Ettish forces. The strategy backfires — it destroys Valenic credibility in the region and swells the Ettish militia with aggrieved refugees.",
+    category: 'conflict',
+    link: '/events/torching-of-vyltwick',
+  },
+  {
+    year: 'c. 1302+',
+    era: 'The Second Ettish War',
+    title: 'Great Abjuration',
+    desc: 'The dominance of evocation magic collapses as asymmetric warfare renders mass-damage spells ineffective. Silence, Counterspell, and illusion rise to prominence — ushering in the age of the Mana Skirmish.',
+    category: 'arcane',
+    link: '/events/great-abjuration',
+  },
+  {
+    year: '1388',
+    era: 'The Second Ettish War',
+    title: 'Carettic War',
+    desc: "The Evershining Empire, sensing Valenic overextension, campaigns to dislodge Valens from Central Wudor. The Empire fails its major objectives — but Valens emerges exhausted, crippled at the outset of further Ettish conflict.",
+    category: 'conflict',
+    link: '/events/carettic-war',
+  },
+  {
+    year: 'Ongoing',
+    era: 'The Second Ettish War',
+    title: 'Seven Demands of the Wudorian Peasantry',
+    desc: "Following the Black Army of Wudor's capture of Margard, its Bailiff proclaims seven demands — invoking the Myriad against corrupt nobility, demanding an end to serfdom, compulsory conscription, and the death-tax.",
+    category: 'political',
+    link: '/events/seven-demands-of-the-wudorian-peasantry',
+  },
+];
+
+const eras = [...new Set(events.map(e => e.era))];
+
+const categoryColors: Record<EventCategory, string> = {
+  conflict: 'var(--red-light)',
+  political: 'var(--gold)',
+  arcane: '#7a9e9f',
+  cultural: 'var(--text-secondary)',
+};
+
+const categoryLabels: Record<EventCategory, string> = {
+  conflict: 'Conflict',
+  political: 'Political',
+  arcane: 'Arcane',
+  cultural: 'Cultural',
+};
+---
+
+<Base title="Timeline">
+  <div style="max-width: 860px; margin: 0 auto; padding: 4rem 2rem 6rem;">
+
+    <div style="margin-bottom: 3.5rem;">
+      <div class="divider">History of Wudor</div>
+      <h1 style="font-family: var(--font-display); font-size: 2rem; color: var(--gold-light); text-align: center; margin: 1.5rem 0 0.75rem;">
+        The Chronicle
+      </h1>
+      <p style="color: var(--text-muted); text-align: center; font-style: italic; font-size: 0.9rem; line-height: 1.6;">
+        A record of wars, upheavals, and turning points. Years in the Valenic calendar.<br />
+        Dates marked <em>c.</em> are approximate.
+      </p>
+
+      <div style="display: flex; gap: 1.5rem; justify-content: center; margin-top: 1.75rem; flex-wrap: wrap;">
+        {Object.entries(categoryLabels).map(([cat, label]) => (
+          <span style="display: flex; align-items: center; gap: 0.45rem; font-family: var(--font-heading); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted);">
+            <span style={`width: 9px; height: 9px; border-radius: 50%; background: ${categoryColors[cat as EventCategory]}; flex-shrink: 0;`}></span>
+            {label}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    {eras.map(era => {
+      const eraEvents = events.filter(e => e.era === era);
+      return (
+        <div style="margin-bottom: 3.5rem;">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+            <div style="flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(201, 162, 39, 0.35));"></div>
+            <span style="font-family: var(--font-heading); font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-muted); white-space: nowrap; padding: 0 0.25rem;">
+              {era}
+            </span>
+            <div style="flex: 1; height: 1px; background: linear-gradient(to left, transparent, rgba(201, 162, 39, 0.35));"></div>
+          </div>
+
+          <div class="era-events">
+            {eraEvents.map((event) => (
+              <div class="tl-row">
+                <div class="tl-dot" style={`background: ${categoryColors[event.category]}; box-shadow: 0 0 0 1px ${categoryColors[event.category]};`}></div>
+                <a href={event.link} class="tl-card">
+                  <div class="tl-meta">
+                    <span class="tl-year">{event.year}</span>
+                    <span class="tl-tag" style={`color: ${categoryColors[event.category]};`}>
+                      {categoryLabels[event.category]}
+                    </span>
+                  </div>
+                  <h3 class="tl-title">{event.title}</h3>
+                  <p class="tl-desc">{event.desc}</p>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+
+  <style>
+    .era-events {
+      position: relative;
+      padding-left: 2.25rem;
+    }
+
+    .era-events::before {
+      content: '';
+      position: absolute;
+      left: 0.55rem;
+      top: 0.5rem;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(201, 162, 39, 0.4), rgba(201, 162, 39, 0.05));
+    }
+
+    .tl-row {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .tl-dot {
+      position: absolute;
+      left: -1.7rem;
+      top: 0.9rem;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      border: 2px solid var(--bg-primary);
+    }
+
+    .tl-card {
+      display: block;
+      text-decoration: none;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--bg-card);
+      transition: border-color var(--transition), background var(--transition);
+    }
+
+    .tl-card:hover {
+      border-color: var(--border-gold);
+      background: var(--bg-card-hover);
+    }
+
+    .tl-card:hover .tl-title {
+      color: var(--gold-light);
+    }
+
+    .tl-meta {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.35rem;
+      flex-wrap: wrap;
+    }
+
+    .tl-year {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-muted);
+    }
+
+    .tl-tag {
+      font-family: var(--font-heading);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .tl-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      transition: color var(--transition);
+    }
+
+    .tl-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+  </style>
+</Base>
