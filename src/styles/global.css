@@ -155,7 +155,6 @@ code {
   display: flex;
   align-items: center;
   padding: 0 2rem;
-  gap: 2rem;
 }
 
 .nav-logo {
@@ -174,8 +173,10 @@ code {
   align-items: center;
   gap: 0.25rem;
   flex-wrap: wrap;
-  flex: 1;
   list-style: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-links a {
@@ -196,6 +197,7 @@ code {
 }
 
 .nav-search-btn {
+  margin-left: auto;
   background: none;
   border: 1px solid var(--border-accent);
   color: var(--text-muted);
