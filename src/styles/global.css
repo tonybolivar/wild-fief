@@ -739,6 +739,35 @@ code {
   text-decoration: none;
 }
 
+.map-location-events {
+  margin: 1rem 0;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+.map-location-events-label {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--gold-light);
+  margin-bottom: 0.5rem;
+}
+.map-event-item {
+  display: block;
+  padding: 0.4rem 0.6rem;
+  margin-bottom: 0.3rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  transition: border-color 0.15s, background 0.15s;
+}
+.map-event-item:hover {
+  border-color: var(--accent);
+  background: var(--bg-overlay);
+  color: var(--accent);
+}
+
 /* Map legend */
 .map-legend {
   position: absolute;

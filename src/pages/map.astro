@@ -1,5 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const allEntries = await getCollection('entries');
+const events = allEntries
+  .filter(e => e.data.category === 'events')
+  .map(e => ({ title: e.data.title, slug: e.data.entrySlug, desc: e.data.description }));
 
 // Location pins with approximate positions on the map image
 // These are [lat, lng] in Leaflet's CRS.Simple where the image is the coordinate system
@@ -129,7 +135,7 @@ const regions = [
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-  <script define:vars={{ locations, regions }}>
+  <script define:vars={{ locations, regions, events }}>
     // Load Leaflet dynamically
     const script = document.createElement('script');
     script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
@@ -225,10 +231,24 @@ const regions = [
           .addTo(map);
 
         marker.on('click', () => {
+          const related = events.filter(e =>
+            e.title.toLowerCase().includes(loc.name.toLowerCase())
+          );
+          const eventsHtml = related.length > 0
+            ? `<div class="map-location-events">
+                <div class="map-location-events-label">Notable Events</div>
+                ${related.map(e => `
+                  <a href="/events/${e.slug}" class="map-event-item">
+                    <span class="map-event-title">${e.title}</span>
+                  </a>
+                `).join('')}
+              </div>`
+            : '';
           sidebarContent.innerHTML = `
             <div class="map-location-category">Location</div>
             <h2 class="map-location-title">${loc.name}</h2>
             <p class="map-location-desc">${loc.desc}</p>
+            ${eventsHtml}
             <a href="/${loc.category}/${loc.slug}" class="map-location-link">
               Full Entry →
             </a>
@@ -251,7 +271,7 @@ const regions = [
             font-size: ${fontSize};
             letter-spacing: 0.25em;
             text-transform: uppercase;
-            color: rgba(201, 162, 39, 0.5);
+            color: rgba(232, 220, 200, 0.9);
             text-shadow: 0 0 12px rgba(0,0,0,0.9);
             pointer-events: none;
           ">${region.name}</span>`)
@@ -295,5 +315,6 @@ const regions = [
   <style>
     .map-page { height: calc(100vh - var(--nav-height)); }
     #map-container { background: #0a0804; }
+
   </style>
 </Base>
