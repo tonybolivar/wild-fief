@@ -73,4 +73,10 @@ CONTEMPORARY
 
 ~819 VD: The remaining Elves resolve to recluse themselves from the madness of the world, declaring their divine directive to create a realm in which all sapient life flourishes defunct. They sort out a deal with the Teurechti, handing them control over the Empire while carving an Elven homeland out of [[Valacar]].
 
+~ 1249 VD: Velmir and the [[Kingdom of Valens]] enter an undeclared naval conflict over dominance of the Ettish coastline and sea lanes, known as the [[Velmiric Slave Raids]].
+
+~ 1291 VD: The Onyx King [[Archebaud de Fleur]] leads an army of 35,000 into the [[Marquisate of Marziellana]], opening the [[Invasion of Carettia]] and marking the first formal war between Valens and the [[First Shining Empire]]. The [[Sack of Dyrmar]] follows shortly after, briefly placing Wislen and Varetta under Valenic control, though it fails to prevent Imperial intervention on behalf of their Carettic holdings.
+
+~ 1329–1351 VD: The [[Second Ettish War]] sees the [[Republic of Ettmark]] rise against Valenic rule in the aftermath of the Onyx King's death. The [[Black Army of Wudor]], a peasant revolt originating in [[Margard]], operates as an independent force hostile to both belligerents throughout the conflict.
+
 
