@@ -1,11 +1,11 @@
+![[Pasted image 20260228233126.png]]*The Coat of Arms of the Kingdom of Valens*
+
 ![[Kingdom of Valens.png]]
 *The borders of the Kingdom of Valens during the Second Ettish War.*
-![[Valenic Coat of Arms.png]]
-*The Coat of Arms of the Kingdom of Valens*
 
-> Valens cais vaen!
+> Valens cai vens!
 
-- 'Valens, until death!', motto popularized during the [[Second Ettish War]].
+- 'Valens, until death!', (pronounced 'Vel-awn, kay vawn!') motto popularized during the [[Second Ettish War]].
 
 
 
@@ -16,4 +16,4 @@ Remaining a dominant power in the region, Valens competed with the Western Shini
 
 > Demographics
 
-During the events of the [[Second Ettish War]], Valens' population was around 25.4 million people. Among these, 21.2 million were considered to be of Valenic ethnicity.
+During the events of the [[Second Ettish War]], Valens' population was around 8.4 million people. Among these, 6.2 million were considered to be of Valenic ethnicity.

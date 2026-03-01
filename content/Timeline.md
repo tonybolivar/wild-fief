@@ -23,7 +23,7 @@ CONTEMPORARY
 
 ~ 106 VD: An ecumenical council of mostly Elves is summoned to hear an auspice from the Gods, determining the Myriad to be the rightful successor 
 
-~ 129 VD: Geffer suffers immense torture under his Orcish captors, sparing vital information that would have endangered the livelihood of the Shining Empire, and is granted Godhood by the Myriad for his selfless act.
+~ 129 VD: Geffer suffers immense torture under his Drow captors, sparing vital information that would have endangered the livelihood of the Shining Empire, and is granted Godhood by the Myriad for his selfless act.
 
 ~ 158 VD: Aengmir is conquered by the First Shining Empire after a decisive defeat of the [[Velm People]] and their clans. A lasting succession of conflicts between the FSE and Velmir begins.
 
@@ -33,7 +33,7 @@ CONTEMPORARY
 
 ~ 258-309 VD: Uenatos II "Chain-Holder" begins his reign, interfering with inheritance laws and allowing the breakup and splitting of estates on the holder's death.
 
-~ 283 VD: Hteros joins the ranks of the Myriad. His worship begins prevelantly in Imperial territories within Quzarat.
+~ 283 VD: Hteros joins the ranks of the Myriad. His worship begins prevelantly in Imperial territories within Qusarat.
 
 ~ 358 VD: The first Orcish Horde led by Gadash Feasts-upon-Bones is founded, confounding many of the states in the Greater and Lesser Koy.
 
@@ -45,16 +45,32 @@ CONTEMPORARY
 
 ~ 575 VD: The Shining Empire loses it's first conflict against Qayyid runic mages in Quzarat, sparking concerns about fading magical power. The Drow are subsequently made into living weapons for the Empire, known as the Kunosa'vlari, or Point of the Spear.
 
+~ 588 VD: The Orcish Horde drives the Valeni tribes out of their ancestral homeland in the far east. The remaining Valeni barbarians flee to Wudor, meeting an already declining Shining Empire.
+
 ~ 603 VD: The Kunosa'vlari destroy Gadash Feasts-upon-Bones after his second attempt to destroy the Shining Empire, in which he made it as far as Teurecht.
 
+~ 604 VD: The First Orcish Horde shatters into a number of broken clans, the largest among them, the Ulkandi (Or. Ash'judot Ulkand)
 
-~ 701 VD: The Siegebreaker Horde is founded among the warring Orcish clans, wreaking havoc in the far east and displacing many Koy and Valeni.
+~650s VD: The Valeni begin to displace natives and settle in low-population frontier areas of the SE, forming various clan-based tribal kingdoms. 
 
-~ 728 VD: Elvish and Orcish realms drive the Valeni tribes out of their ancestral homeland in the far east. The remaining Valeni barbarians flee to Wudor, meeting an already declining Shining Empire.
+~ 744 VD: The Valeni defeat the Shining Empire in Kalward, securing further expansion routes. Ettish settlers would resettle near the elven ruins, creating Galvar. The Shining Empire is geographically halved and is in perpetual chaos.
 
-~ 744 VD: The Valeni defeat the Shining Empire in Kalward, securing further expansion routes. Ettish settlers would resettle near the elven ruins, creating Galvar. The Shining Empire is geographically halved.
+~ 765 VD: The Velms raid what is now Orngard, thrusting the First Shining Empire out of the region and claiming it for their own.
 
-~ 788 VD: Valens is founded by Aucen de Fleur after uniting the disparate Valeni tribes.
+~ 788 VD: Valens is founded by Aucen de Fleur after uniting the disparate Valeni tribes. They begin intermittent conflicts with the Shining Empire to their west.
 
+~ 794 VD: The First Orcish Horde under Argel, or Argeli (Or. Argel'kurash) is founded among the warring Orcish clans, wreaking havoc in the far east and displacing many Koy and Valeni.
+
+~ 800 VD: The Drow are officially abandoned by the Shining Empire, and left to fend off the Orcs themselves. The Kunosa'vlari engage Argel's horde in Germaz, with disastrous results. Following this, they create a pact with Hteros, and form the Evershining Empire.
+
+~ 803 VD: Heartrender Gulra, Orcish Warlord, lands her forces on the shores of Daoudharam to the southwest. The Aksadani are massacred, and lose around a third of their population. Intermittent Harpy raids begin to target the Shining Empire as the barrier between them and the northern seas dissipates.
+
+~ 806 VD: Anhor I is granted emergency powers to rescue Elvendom. His succession is disputed by Delear of Carettia, who begins a rebellion alongside several secessionist provinces. 
+
+~ 810 VD: After a brutal four years of total warfare between Anhor and Delear, Delear captures the Shining Empire's capital, Veala. However, Anhor leads a resurgent force to surround Delear, destroying his trapped forces.
+
+~ 812 VD: Delear attempts to destroy his enemies with forbidden magic, aiming to utilize a massive pulse to incapacitate the armies of Anhor en masse. This fails, and all territories now in the Desolation are subject to an explosion of previously unknown proportions. Over one-half of all Elves die near-instantaneously, as well as massive swathes of Carettic and Teurechti armies loyal to either side.
+
+~819 VD: The remaining Elves resolve to recluse themselves from the madness of the world, declaring their divine directive to create a realm in which all sapient life flourishes defunct. They sort out a deal with the Teurechti, handing them control over the Empire while carving an Elven homeland out of [[Valacar]].
 
 

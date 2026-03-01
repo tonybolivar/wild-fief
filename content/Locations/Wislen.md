@@ -1,0 +1,1 @@
+Wislen is the third-largest city in Carettia, and the capital of the Dyrmar region. Traditionally held by the Teurechti [[ZeuDeulers]], it was their second most important possession in the Empire over their core territories in Teurecht.

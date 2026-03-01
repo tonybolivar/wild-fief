@@ -1,1 +1,23 @@
 Aucen "The Righteous" de Fleur was the ruler of the Duchy of Vourgnon, a position he utilized to unite the various warring fiefdoms of Valens in 788 VD. He is known as the patron of the ruling De Fleur dynasty of Valens.
+
+# Early Life 
+
+Little reliable record survives of Aucen’s youth, and his past has been corrupted by the circulation of unreliable legends. What is known is that he was born as Iuelen de Fleur into the Devleur Clan sometime in the late 750s, into a time where what is now known as Valens was divided into a number of Aucene barbarian states. He was known to have participated in eastward raids, during one of which, presumed to be around the early 780s, he resided in the [[Second Shining Empire]] for some time, though the exact settlement is unknown. There, he briefly studied Myriadic theology, and in some sources, vowed to bring all the Aucene peoples into the loving embrace of the Seven, though this is not supported by any written account.
+
+# As Ruler of Vourgnon
+
+During Iuelen's time in the Empire, he came into contact with the [[Ettish People]]. Their tightly ordered commercial traditions and architectural prowess impressed him, so much so that he would regularly invite high-ranking members of Ettish society into his court upon his return. His ascension to Vourgnon's rulership was challenged at least twice via duel, though he was victorious in both instances.
+
+Likewise, due to a lack of bookkeeping, the exact mechanisms through which Iuelen subjugated neighboring Aucene tribal kingdoms is unknown. The first of his several wars was against the Aviennard peoples to the northeast, in which he set later precedent by demanding the wife of the ruling Duke as a hostage while enforcing strict military and tribute obligations on the region. Despite this, he made no attempt to decimate the ruling family as was common among Aucenes in conflict at the time.
+
+Iuelen's forces quickly spiraled in size and efficiency, backed by a number of wealthy Ettish lords who were eager to see the end of raids by barbarians in the area, and the establishment of a polity that they believed would quickly adopt to Wudorian tradition and become a valuable and consistent trading partner. His style of tactics involved the impressment of near-constant low-intensity warfare in order to bait out the ruler of whatever realm opposed him, and defeating them in a subsequent decisive battle. His actual military prowess in the chaos of battle is doubted somewhat due to his reliance on subordinates, but what is known is that he was an expert in choosing the battlefield itself and anticipating enemy movement, often driving his foes to attack him on disadvantageous terrain or otherwise manipulating them into themselves choosing a poor position. 
+
+Valens was united by 788 AD, by which time the structure was largely resemblant of that of a hostage situation. Iuelen held the family members and spouses of most major clansmen in the region, and continued to utilize them as leverage and anticipatory punishment.
+
+# As First King of Valens
+
+Iuelen's first decision after the consolidation of all Valens into a single polity was to name himself First of the Aucenes. The significance behind this is debated, but it is presumed to have been in pursuit of establishing a singular Valene identity that encompassed all Aucene peoples- though, of course, this would never come to fruition, with [[Carettia]] firmly under the grasp of the Second Shining Empire. His immediate goal was the implementation of broader ‘civilized’ structures seen in the west, though he understood the inherent contrasts between it and the Valene martial identity.
+
+Besides a number of grand infrastructural projects, Aucen would demand ritual submission prior to the granting of titles, and firmly establish the lord-subordinate relationship to be one of acknowledgement of martial prowess at any given time; among these, the cession of the right to divide land among heirs, and the granting of the right to fratricidal dueling over inheritance of a single domain. This right, of course, extended to his own family and the Devleurs at large- any individual crafty enough to join the Devleur family, and with great enough martial prowess to defeat all claimants, could theoretically become the Valene King.
+
+This skyrocketed the value and prestige associated with marriage into the ruling family, while allowing for martial expression within dynastic houses within the country and prohibiting internal conflict otherwise. Still bloodthirsty, the Valenes would find new enemies in the [[Evershining Empire]] and the retreating [[First Orcish Horde]]

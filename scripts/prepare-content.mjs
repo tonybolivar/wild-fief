@@ -33,6 +33,7 @@ const CATEGORY_FOLDERS = {
   races: 'Races',
   regions: 'Regions',
   'wider-groupings': 'Wider Groupings',
+  beasts: 'Beasts',
 };
 
 // Category display names
@@ -49,6 +50,7 @@ const CATEGORY_LABELS = {
   races: 'Races',
   regions: 'Regions',
   'wider-groupings': 'Wider Groupings',
+  beasts: 'Beasts',
 };
 
 function slugify(name) {
@@ -170,7 +172,7 @@ function extractImages(body) {
 // Valid content categories (not images)
 const VALID_CATEGORIES = new Set([
   'factions', 'gods', 'nations', 'locations', 'people', 'events',
-  'ethnic-groupings', 'concepts', 'institutions', 'races', 'regions', 'wider-groupings'
+  'ethnic-groupings', 'concepts', 'institutions', 'races', 'regions', 'wider-groupings', 'beasts'
 ]);
 
 function findReferences(body) {

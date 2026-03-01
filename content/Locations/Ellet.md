@@ -11,3 +11,5 @@ In the early 1300s, a mostly bloodless takeover of the town occurred when the Va
 At the outbreak of the Onyx King's wars, Ellet lay firmly under Valenic control, and was repeatedly used for supplies and quartering. During this time, traditional Ettish laws for the choosing of Elders were discontinued in favor of selection by Valenic authorities, and the town was officially renamed Ellet.
 
 > 1400s VD
+
+Ellet was taken over by [[Kenway Moonsail (Person)]] and [[Ferran Alwin]], officially under the banner of the [[Black Army of Wudor]]. However, they would quickly make it the base of operations for the splinter [[Blackhoods]]. The town during this period reverted to it's original Ettish name, Aelitz.

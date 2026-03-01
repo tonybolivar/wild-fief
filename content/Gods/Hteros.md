@@ -1,4 +1,4 @@
-Hteros, the Binded Chain, is the god of Subjugation, Tyranny, and Slavery.
+Hteros, (Drw: Hdarsh] the Binded Chain, is the god of Subjugation, Tyranny, and Slavery.
 
 The Evershining Empire worshipped Hteros with a warped perception, believing him the patron god of rigidity and stability. This strength, along with the light of the Evershining Elves, is what they believed granted the Empire it's eternal nature.
 

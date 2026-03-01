@@ -1,0 +1,2 @@
+Ymer, avatar of Mercy, is a diety from Teurecht who espouses the notion that punishment should only be meted out when truly deserved, not simply when it is in one's power to punish. Skilled in the arts of coercion and manipulation, Ymerites have aided many in avoiding the torture chamber through their magic-tinted words and glances, of which can derive any information from an unwilling pair of lips.
+

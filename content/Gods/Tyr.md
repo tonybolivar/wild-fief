@@ -1,0 +1,1 @@
+Tyr, the militant Avatar of Diligence, is perhaps the god who's consciousness remained most intact after the subsuming of the seven Gods into the Myriad. He calls for vigilant and militant action against monsters and all evils, and is worshipped almost universally by the Astringent.

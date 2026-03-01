@@ -1,0 +1,3 @@
+The Almighty Church of the Seven is an international institution recognized by small portions of southern [[Wudor]] and large swathes of Myriadic worshippers in [[Qusarat]] as the sole and final authority on all matters regarding [[The Myriad]] in earthly affairs.
+
+The Church split from the [[Ecumenical Hieronate of the Seven]] over the position of the Hieron and the notion of clerical leadership. 

@@ -1,0 +1,1 @@
+The Lesser Koy are a subgrouping of the [[Koy People]], composed of the Lyusowi, Zalokowi, and Rubenowi.

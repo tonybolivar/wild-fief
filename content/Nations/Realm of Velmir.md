@@ -1,6 +1,6 @@
 The **Realm of Velmir** (Vlm: Vaelmrs Reig) is a nation in northern [[Wudor]]. A sparsely populated and largely geographically isolated land, Velmiric clans were largely isolated from the rest of the world until incursions by the First Shining Empire saw the intrusion of Myriadic thought into Aengmir, starting a lasting conflict between Velmir and the Shining Empire, though hostilities did not significantly carry on to it's successor states.
 
-Velmir is actively hostile towards the [[Kingdom of Valens]], as both seek to establish firm control over the [[Ettish People]] polities and coastline in order to project naval power. Valens and Velmir have been engaged in an undeclared naval conflict since 1249 VD, categorized as the [[Velmiric Slave Raids]]. They enjoy somewhat friendly relations with the Lesser Koy to their south due to mutual hostilities with successive Siege Orcish hordes, and occasionally come into conflict with the [[Teurechti People]] Western Shining Empire.
+Velmir is actively hostile towards the [[Kingdom of Valens]], as both seek to establish firm control over the [[Ettish People]] polities and coastline in order to project naval power. Valens and Velmir have been engaged in an undeclared naval conflict since 1249 VD, categorized as the [[Velmiric Slave Raids]]. They enjoy somewhat friendly relations with the [[Lesser Koy]] to their south due to mutual hostilities with successive Siege Orcish hordes, and occasionally come into conflict with the [[Teurechti People]] Western Shining Empire.
 
 
 
@@ -16,4 +16,4 @@ Velmir is actively hostile towards the [[Kingdom of Valens]], as both seek to es
 
 > Demographics
 
-In 1300 VD, Velmir's population was estimated at 18.2 million people.
+In 1300 VD, Velmir's population was estimated at 6.2 million people.

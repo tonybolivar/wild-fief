@@ -1,4 +1,10 @@
-The **Consulate of the Five Ettish Marches**, (Ett: Oberat den Vofe Ettisk Marke) more commonly known as the **Republic of Ettmark** (or simply **Ettmark**), was the government organized by various revolting polities in the immediate aftermath of the death of the Onyx King. It was the first attempt at creating a singular, unified [[Ettish People]] nation-state.
+
+
+![[Pasted image 20260228234054.png]]
+
+> Coat of Arms of the Republic.
+
+The **Consulate of the Five Ettish Marches**, (Ett: Oberat den Vofe Ettisk Marke) more commonly known as the **Republic of Ettmark** (or simply **Ettmark**), was the government organized by various revolting polities in the immediate aftermath of the death of the Onyx King. It was the first attempt at creating a singular, unified nation-state for the [[Ettish People]].
 
 Best described as a union of city councils, rebellious aristocrats, and Ettish artisan and merchant guilds, the Ettish opposed the increasing power of the Valenic nobility over their affairs, and the autocratic nature of the Onyx King, who placed stricter regulations on commerce with 'hostile' realms and cut down on the various privileges granted to Ettish estates and cities granted to them upon their initial absorption into the [[Kingdom of Valens]]. The Ettish Revolt was largely motivated by the precept that remaining vassals of the Valenic crown would lead to the eventual removal of Ettish estate privileges, and commercial ruin due to ongoing conflicts with the [[Realm of Velmir]] and [[Drow]]. Even so, many Ettish earnestly fought for what they believed was a war to 'expel the foreigners from their land.'
 
@@ -10,10 +16,10 @@ Distressed by the Onyx King's incessant taxation, removal of mercantile and econ
 
 > Government
 
-The founders of the Consulate frequently stated that heavy inspiration for the political structure of Ettmark was taken from the government of the [[Realm of Velmir]]. With a similar lack of landed nobility, as well as similarities between the clan structures of the Ettish and [[Velm People]], Ettmark's government heavily derived from the brief clauses in Velmiric governance in which the various clans and functionally independent city-states of Velmir could temporarily band together under an Elder Jarl to vanquish the most immediate threat.
+The founders of the Consulate frequently stated that heavy inspiration for the political structure of Ettmark was taken from the government of the [[Realm of Velmir]]. With a similar lack of landed nobility, as well as similarities between the commercial structures of the Ettish and the Jutts, a subsection of the [[Velm People]], Ettmark's government heavily derived from the brief clauses in Velmiric governance in which the various clans and functionally independent city-states of Velmir could temporarily band together under an Elder Jarl to vanquish the most immediate threat.
 
 While this was a temporary measure in Velmir, it was the permanent basis on which the Ettish government was structured. Cities and polities with sizable enough influence (those being [[Hanset]], Laen, Hartford, and briefly Margard and Zotten) to be considered a part of the consulate had to agree unanimously to any major changes, though the constitution was never implemented as a result of the outcome of the [[Second Ettish War]]. The first Ettish constitution was largely viewed as a fluke, granting far too many powers to the overarching Magistrate, while effectively granting veto power to each of the magistrate's constituents, each of which largely kept their own interests at heart.
 
 > Demographics
 
-During the outbreak of the [[Second Ettish War]], Ettmark's population was around 4.7 million people.
+During the outbreak of the [[Second Ettish War]], Ettmark's population was around 1.7 million people.

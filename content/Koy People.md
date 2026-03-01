@@ -1,0 +1,3 @@
+The Koy People are an ethnic grouping indigenous to northern and eastern [[Wudor]]. They can be further divided linguistically and culturally into the [[Greater Koy]] and the [[Lesser Koy]]. 
+
+Despite this naming convention, the territories of the Lesser Koy are the heartland of the Koyŭ, including the old [[Zalokow Koy]]. The term 'Greater Koy' refers to the designation of external northern territories as part of a 'greater' Koyŭ civilization, excluding the core territories.

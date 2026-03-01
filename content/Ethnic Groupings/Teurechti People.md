@@ -1,1 +1,1 @@
-The Teurechti 
+The Teurechti People are the largest ethnic group in [[Wudor]], and the dominant ethnic grouping in and driving force behind the [[Second Shining Empire]].

@@ -31,7 +31,9 @@ A document procured by the newly elected Bailiff of Margard after it's capture b
 
 ``We declare that we are free and wish to remain so.``
 
-``Hear us and adhere if you listen with the ear of intelligence.``
+``Hear us and adhere if you listen with the ear of intelligence.
+
+``If not, we will bury you.``
 
 
 

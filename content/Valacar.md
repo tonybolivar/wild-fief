@@ -1,0 +1,1 @@
+Valacar, officially the **Realm of Valacar** (El. Valacars Reage) is a polity in northwestern [[Wudor]]. It is inhabited by the world's few remaining [[Moonlight Elves]].

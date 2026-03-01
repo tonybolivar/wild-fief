@@ -1,1 +1,1 @@
-The First Shining Empire was the largest 
+The First Shining Empire (Elv: Aedar Vealarag) was a polity existing in Wudor from 15 VD to 

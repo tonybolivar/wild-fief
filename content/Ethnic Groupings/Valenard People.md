@@ -1,7 +1,7 @@
 
 ![[Pasted image 20250127230432.png]]
 
-> A painting of a Valenic foot soldier.
+> A painting of a Valenard, c. 1322
 
 **Valenards**, or Valenics (Vln: Valenards, 'Valenics') are a nation and ethno-racial grouping indigenous to [[Central Wudor]], and the dominant ethnic group within the [[Kingdom of Valens]].
 

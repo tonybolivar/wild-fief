@@ -17,11 +17,11 @@ Central Wudor is where the central events of Wild Fief are set, and where the [[
 
 [[Western Wudor]], where the [[Teurechti People]] Second Shining Empire holds political dominance over a myriad of smaller constituent polities.
 
-Southern Wudor, or Ancandore, inhabited by the [[Carettic People]] and home to the Ecumenicum, recognized across the Myriad's domain as the birthplace of the Myriad and the supreme religious authority on the continent. In the east, portions of the region are occupied by the [[Quzarat]]-based Elven [[Evershining Empire]].
+Southern Wudor, or Ancandore, inhabited by the [[Carettic People]] and home to the Ecumenicum, recognized across the Myriad's domain as the birthplace of the Myriad and the supreme religious authority on the continent. In the east, portions of the region are occupied by the [[Qusarat]]-based Elven [[Evershining Empire]].
 
 Eastern Wudor, where the Greater and Lesser Koy feud with invading Orcish hordes.
 
-Northern Wudor, where the [[Realm of Velmir]] is resplendant.
+Northern Wudor, where the [[Realm of Velmir]] is resplendent.
 
 Almost all inhabitants of Wudor are worshippers of the Myriad, with the exception of small portions in the southeast currently occupied by the Evershining Empire.
 

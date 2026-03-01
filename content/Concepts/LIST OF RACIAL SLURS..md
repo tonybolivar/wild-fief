@@ -14,7 +14,7 @@ AGAINST ELVES.
 
 **Treefucker:** Self explanatory.
 
-**Stofkike / Stafkeik:** "Dust-kicked," in Ettish and Teurechti specifically, referring to their now-lost position as the dominant race of the world.
+**Stafkeik:** "Dust-kicked," in Ettish and Teurechti specifically, referring to their now-lost position as the dominant race of the world.
 
 AGAINST DWARVES.
 

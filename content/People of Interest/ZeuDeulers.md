@@ -1,0 +1,1 @@
+The ZeuDeulers were the ruling Emperors of the Second Shining Empire from the early 1200s to the late 1400s. They hailed from Dyrmar, a region comprised of land from both Carettia and Teurecht.

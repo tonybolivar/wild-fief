@@ -1,0 +1,1 @@
+The Devleurs, or De Fleurs in old Aucene, are the ruling dynasty of the [[Kingdom of Valens]]. Unlike the neighboring [[Second Shining Empire]], succession in Valens is tightly controlled, and clandestine efforts to cull potential claimants to the throne have kept the dynasty in power since the rise of [[Aucen de Fleur]].
