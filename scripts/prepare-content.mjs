@@ -61,6 +61,16 @@ function slugify(name) {
     .replace(/^-|-$/g, '');
 }
 
+// Root-level .md files that should be processed as proper entries
+const ROOT_FILE_CATEGORIES = {
+  'Koy People': 'ethnic-groupings',
+  'Lesser Koy': 'wider-groupings',
+  'Valacar': 'nations',
+  'Zalokow Koy': 'nations',
+  'Wudor': 'regions',
+  'Central Wudor': 'regions',
+};
+
 // Build a global lookup: title → { category, slug }
 const entryLookup = {};
 
@@ -80,12 +90,46 @@ function scanEntries() {
       }
     }
   }
-  // Root-level md files → misc category
+  // Root-level md files — use known category map, skip empties
   for (const f of fs.readdirSync(SOURCE_ROOT)) {
     if (!f.endsWith('.md')) continue;
     const title = f.replace(/\.md$/, '');
-    entryLookup[title.toLowerCase()] = { category: 'misc', slug: slugify(title) };
+    const category = ROOT_FILE_CATEGORIES[title] || 'misc';
+    entryLookup[title.toLowerCase()] = { category, slug: slugify(title) };
   }
+}
+
+function processRootFiles() {
+  const entries = [];
+  for (const [title, category] of Object.entries(ROOT_FILE_CATEGORIES)) {
+    const filePath = path.join(SOURCE_ROOT, `${title}.md`);
+    if (!fs.existsSync(filePath)) continue;
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    if (!raw.trim()) continue; // skip empty files
+    const { frontmatter, body: rawBody } = parseFrontmatter(raw);
+    const slug = slugify(title);
+    let body = processObsidianMarkdown(rawBody, category);
+    const description = frontmatter.description || extractDescription(body);
+    const images = extractImages(body);
+    const references = findReferences(body);
+    const outFm = {
+      title: frontmatter.title || title,
+      description: description || `An entry about ${title}.`,
+      category,
+      categoryLabel: CATEGORY_LABELS[category] || category,
+      entrySlug: slug,
+      tags: frontmatter.tags || [],
+      image: images[0] || '',
+      references: JSON.stringify(references.slice(0, 10)),
+    };
+    const fmStr = Object.entries(outFm).map(([k, v]) => `${k}: ${JSON.stringify(v)}`).join('\n');
+    const outputContent = `---\n${fmStr}\n---\n\n${body}`;
+    const outputPath = path.join(CONTENT_OUT, `${category}--${slug}.md`);
+    fs.writeFileSync(outputPath, outputContent, 'utf-8');
+    entries.push({ title: outFm.title, description: outFm.description, category, slug, image: outFm.image });
+    console.log(`    ${title} → ${category}/${slug}`);
+  }
+  return entries;
 }
 
 function resolveWikiLink(name) {
@@ -292,6 +336,8 @@ async function main() {
     const entries = processCategory(cat, folder);
     allEntries.push(...entries);
   }
+  console.log('  Root-level files:');
+  allEntries.push(...processRootFiles());
 
   // Step 4: write search index
   console.log('\n[4/4] Writing search index...');
